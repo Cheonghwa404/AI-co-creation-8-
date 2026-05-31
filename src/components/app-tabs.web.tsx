@@ -21,11 +21,20 @@ export default function AppTabs() {
       <TabSlot style={{ height: '100%' }} />
       <TabList asChild>
         <CustomTabList>
-          <TabTrigger name="home" href="/" asChild>
-            <TabButton>Home</TabButton>
+          <TabTrigger name="index" href="/" asChild>
+            <TabButton>지도</TabButton>
           </TabTrigger>
           <TabTrigger name="explore" href="/explore" asChild>
-            <TabButton>Explore</TabButton>
+            <TabButton>검색</TabButton>
+          </TabTrigger>
+          <TabTrigger name="report" href="/report" asChild>
+            <TabButton>제보</TabButton>
+          </TabTrigger>
+          <TabTrigger name="shop" href="/shop" asChild>
+            <TabButton>상점</TabButton>
+          </TabTrigger>
+          <TabTrigger name="profile" href="/profile" asChild>
+            <TabButton>마이</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -39,7 +48,7 @@ export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps
       <ThemedView
         type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
         style={styles.tabButtonView}>
-        <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
+        <ThemedText type="smallBold" themeColor={isFocused ? 'primary' : 'textSecondary'}>
           {children}
         </ThemedText>
       </ThemedView>
@@ -54,8 +63,8 @@ export function CustomTabList(props: TabListProps) {
   return (
     <View {...props} style={styles.tabListContainer}>
       <ThemedView type="backgroundElement" style={styles.innerContainer}>
-        <ThemedText type="smallBold" style={styles.brandText}>
-          Expo Starter
+        <ThemedText type="smallBold" style={[styles.brandText, { color: colors.primary }]}>
+          Cafe-Lit ☕
         </ThemedText>
 
         {props.children}
